@@ -1,0 +1,89 @@
+53 ?- consult(['c:/Users/tilza/OneDrive/Documents/Prolog/Amjad_Lab5_FamilyTree.pl']).
+true.
+
+54 ?- father(X, bart).
+X = homer .
+
+55 ?- father(homer, X).
+X = bart ;
+X = lisa ;
+X = maggie.
+
+56 ?- mother(X, lisa).
+X = marge.
+
+57 ?- mother(selma, X).
+X = ling.
+
+58 ?- son(X, homer).
+X = bart .
+
+59 ?- son(homer, X).
+X = abraham .
+
+60 ?- son(homer, abraham).
+true.
+
+61 ?- son(bart, homer).
+true.
+
+62 ?- daughter(X, marge).
+X = lisa ;
+X = maggie.
+
+63 ?- daughter(X, clancy).
+X = marge ;
+X = patty ;
+X = selma.
+
+64 ?- brother(X, homer).
+X = herb .
+
+65 ?- brother(bart, lisa).
+true .
+
+66 ?- brother(bart, lisa).
+true .
+
+66 ?- sister(patty, selma).
+true .
+
+67 ?- setof(X, sister(X, bart), L).
+L = [lisa, maggie].
+
+68 ?- grandfather(X, bart).
+X = abraham ;
+X = clancy .
+
+69 ?- grandfather(clancy, X).
+X = bart ;
+X = lisa ;
+X = maggie ;
+X = ling.
+
+70 ?- uncle(X, bart).
+X = herb .
+
+71 ?- uncle(herb, X).
+X = bart .
+
+72 ?- uncle(herb, bart).
+true .
+
+73 ?- setof(X, aunt(X, bart), L).
+L = [patty, selma].
+
+74 ?- setof(X, aunt(X, ling), L).
+L = [marge, patty].
+
+75 ?- cousin(bart, ling).
+true .
+
+76 ?- setof(X, cousin(X, ling), L).
+L = [bart, lisa, maggie].
+
+77 ?- setof(X, ancestor(X, bart), L).
+L = [abraham, clancy, homer, jackie, marge, mona].
+
+78 ?- setof(X, ancestor(abraham, X), L).
+L = [bart, herb, homer, lisa, maggie].
